@@ -12,5 +12,5 @@ def suma_numeros():
     except ValueError:
         print("Error: Ingresa números válidos.")
 
-# Llamar a la función para sumar números
+# Llamar a la función para sumar números pon lo que me de la gana
 suma_numeros()
