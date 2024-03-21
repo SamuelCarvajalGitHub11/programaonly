@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:latest
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - red-monitoreo
+    volumes :
+      - jenkins_home:/var/jenkins_home
+    enviroment:
+      - TZ=America/Bogota
+
+  grafana:
+    image:  grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - red-monitoreo
+  
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - red-monitoreo
+    volumes:
+      - /.prometheus.yml:/etc/prometheus/prometheus.yml:rw
+
+  volumes:
+    jenkins_home:
+  
+  networks:
+    read-monitoreo:
+      driver: bridge
