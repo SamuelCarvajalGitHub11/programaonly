@@ -1,0 +1,3 @@
+http://localhost:8080/job/prueba/configure
+project url
+https://github.com/SamuelCarvajalGitHub11/trabajoonly/
